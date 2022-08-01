@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+
+	<insert id="save">
+		insert into jinair_mvc1 (name,userid,password,email,sex,birth) values (#{name},#{userid},#{password},#{email},#{sex},#{birth})
+	</insert>
+	<update id="update">
+		update jinair_mvc1
+		set name=#{name},userid=#{userid},password=#{password},email=#{email},sex=#{sex},birth=#{birth}
+		where id = #{id}
+	</update>
+	<delete id="delete">
+		delete from jinair_mvc1 where id=#{id}
+	</delete>
+	<select id="getUserByID" resultType="User">
+		select * from jinair_mvc1 where id=#{id}
+	</select>
+	<select id="getUsers" resultType="User">
+		select * from jinair_mvc1 order by id 
+	</select>
+	<select id="getUser" resultType="User">
+		select userid, name from jinair_mvc1
+		where userid=#{userid} and password=#{password}
+	</select>
+	
+
+</mapper>
