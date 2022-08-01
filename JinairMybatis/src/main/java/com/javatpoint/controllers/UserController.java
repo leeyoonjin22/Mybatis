@@ -38,21 +38,21 @@ public class UserController {
         return "redirect:/finish";   
     }    
       
-    @RequestMapping("/viewuser")    
+    @RequestMapping("viewuser")    
     public String viewemp(Model m){    
         List<UserVO> list=dao.getUsers();    
         m.addAttribute("list",list);  
         return "viewuser";    
     }    
      
-    @RequestMapping(value="/editemp/{id}")    
+    @RequestMapping(value="editemp/{id}")    
     public String edit(@PathVariable int id, Model m){    
     	UserVO user=dao.getUserById(id);    
         m.addAttribute("command",user);  
         return "usereditform";    
     }    
       
-    @RequestMapping(value="/editsave",method = RequestMethod.POST)    
+    @RequestMapping(value="editsave",method = RequestMethod.POST)    
     public String editsave(@ModelAttribute("user") UserVO user){  
     	
     	
@@ -62,7 +62,7 @@ public class UserController {
         return "redirect:/viewuser";    
     }    
     
-    @RequestMapping(value="/deleteuser/{id}",method = RequestMethod.GET)    
+    @RequestMapping(value="deleteuser/{id}",method = RequestMethod.GET)    
     public String delete(@PathVariable int id){    
         dao.delete(id);    
         return "redirect:/viewuser";    

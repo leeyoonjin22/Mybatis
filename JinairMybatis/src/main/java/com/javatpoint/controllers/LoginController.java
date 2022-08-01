@@ -15,7 +15,7 @@ import com.javatpoint.dao.UserDao;
 import com.javatpoint.service.UserServiceImpl;
 
 @Controller
-@RequestMapping(value="/login")
+@RequestMapping(value="login")
 public class LoginController {
 	
 	@Autowired    
@@ -25,17 +25,17 @@ public class LoginController {
 	@Autowired 
 	UserServiceImpl service;
 	
-	@RequestMapping(value="/login", method= RequestMethod.GET)
+	@RequestMapping(value="login", method= RequestMethod.GET)
 	public String login(String t, Model model) {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/home")
+	@RequestMapping(value = "home")
 	public String index() {
 		return "index";
 	}
 	
-	@RequestMapping("/join")  
+	@RequestMapping("join")  
     public String join(Model m){  
     	m.addAttribute("command", new UserVO());
     	return "addform"; 
@@ -48,7 +48,7 @@ public class LoginController {
 	
 	
 	
-	@RequestMapping(value="/loginOk", method= RequestMethod.POST)
+	@RequestMapping(value="loginOk", method= RequestMethod.POST)
 	public String loginCheck(HttpSession session, UserVO vo) {
 		String returnURL = "";
 		if(session.getAttribute("login") != null) {
@@ -69,7 +69,7 @@ public class LoginController {
 	}
 	
 	//로그아웃 하는 부분
-	@RequestMapping(value="/logout")
+	@RequestMapping(value="logout")
 	public String logout(HttpSession session) {
 		session.invalidate();
 		return "redirect:/login/login";

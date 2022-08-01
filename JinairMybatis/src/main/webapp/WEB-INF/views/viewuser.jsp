@@ -22,4 +22,4 @@
     </c:forEach>
     </table>
     <br/>
-    <a href="/mvc/">메인화면으로가기</a>
+    <a href="./">메인화면으로가기</a>
